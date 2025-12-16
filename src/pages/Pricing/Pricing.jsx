@@ -1,6 +1,6 @@
 // Uses the same styles as Product
-import styles from "./Product.module.css";
-import Header from "../components/Header";
+import styles from "../Product/Product.module.css";
+import Header from "../../components/03-formations/Header/Header.jsx";
 
 export default function Product() {
   return (
@@ -20,7 +20,7 @@ export default function Product() {
                 voluptatem iste.
               </p>
             </div>
-            <img src="/img-2.jpg" alt="overview of a large city with skyscrapers" />
+            <img src="/public/img-2.jpg" alt="overview of a large city with skyscrapers" />
           </section>
         </main>
       </>

@@ -1,5 +1,5 @@
 import styles from "./Product.module.css";
-import Header from "../components/Header";
+import Header from "../../components/03-formations/Header/Header.jsx";
 
 export default function Product() {
   return (
@@ -8,7 +8,7 @@ export default function Product() {
         <main className={styles.product}>
           <section>
             <img
-                src="/img-1.jpg"
+                src="/public/img-1.jpg"
                 alt="person with dog overlooking mountain with sunset"
             />
             <div>

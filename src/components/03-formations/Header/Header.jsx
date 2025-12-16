@@ -1,6 +1,6 @@
-import Logo from "./Logo";
+import Logo from "../../01-composites/Logo/Logo.jsx";
 import styles from "./Header.module.scss";
-import PageNav from "./PageNav";
+import PageNav from "../../01-composites/PageNav/PageNav.jsx";
 
 export default function Header() {
   return (

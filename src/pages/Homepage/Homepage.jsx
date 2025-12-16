@@ -1,6 +1,6 @@
 import styles from "./Homepage.module.scss";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "../../components/03-formations/Header/Header.jsx";
 
 export default function Homepage() {
   return (
