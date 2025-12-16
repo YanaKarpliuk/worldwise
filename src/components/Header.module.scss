@@ -1,0 +1,18 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+
+  :global(.container) {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+  }
+
+  nav {
+    margin-left: auto;
+  }
+}

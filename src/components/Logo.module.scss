@@ -1,0 +1,14 @@
+.logoWrapper {
+  a {
+    display: block;
+    height: 30px;
+
+    @include media-breakpoint-up($desktop) {
+      height: 40px;
+    }
+  }
+
+  .logo {
+    height: 100%;
+  }
+}

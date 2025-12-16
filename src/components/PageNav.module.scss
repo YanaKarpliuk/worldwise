@@ -1,0 +1,48 @@
+.nav {
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: var(--color-light--2);
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 600;
+      transition: $transition-time;
+
+      @include media-breakpoint-up($desktop) {
+        font-size: 16px;
+      }
+
+      @include active() {
+        color: var(--color-brand--2);
+      }
+
+      &:global(.active) {
+        color: var(--color-brand--2);
+      }
+
+      &:global(.cta) {
+        font-size: 14px;
+
+        @include media-breakpoint-up($desktop) {
+          font-size: 16px;
+        }
+
+        @include active() {
+          color: var(--color-light--2);
+        }
+
+        &:global(.active) {
+          color: var(--color-light--2);
+        }
+      }
+    }
+  }
+}
