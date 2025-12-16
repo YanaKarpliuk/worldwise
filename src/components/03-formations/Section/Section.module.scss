@@ -1,0 +1,18 @@
+.section {
+  padding: 120px 0;
+
+  &:global(.bg) {
+    background-image:
+      linear-gradient(rgba(36, 42, 46, 80%), rgba(36, 42, 46, 80%)),
+      url("/bg.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  &:global(.banner) {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    height: fit-content;
+  }
+}

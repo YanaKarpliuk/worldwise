@@ -1,14 +1,8 @@
-.homepage {
+.banner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
-  min-height: fit-content;
-  padding: 120px 0;
-  background-image:
-    linear-gradient(rgba(36, 42, 46, 80%), rgba(36, 42, 46, 80%)),
-    url("/bg.jpg");
-  background-size: cover;
-  background-position: center;
+  justify-content: center;
   text-align: center;
 
   h1 {
