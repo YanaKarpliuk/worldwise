@@ -1,0 +1,16 @@
+@mixin media-breakpoint-up($key) {
+  @if $key {
+    /* stylelint-disable media-query-no-invalid */
+    @media (width >= $key) {
+      @content;
+    }
+  }
+}
+
+@mixin active() {
+  /* stylelint-disable nesting-selector-no-missing-scoping-root */
+  &:hover,
+  &:focus {
+    @content;
+  }
+}

@@ -1,3 +1,12 @@
 {
-  "extends": ["stylelint-config-standard" , "stylelint-prettier/recommended"]
+  "extends": ["stylelint-config-standard" , "stylelint-prettier/recommended"],
+  "rules": {
+    "import-notation": "string",
+    "custom-property-pattern": null,
+    "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": null,
+    "at-rule-no-unknown": null,
+    "color-function-alias-notation": null,
+    "color-function-notation": null
+  }
 }
