@@ -1,0 +1,16 @@
+.countryList {
+  list-style: none;
+  overflow: scroll hidden;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+
+  @include media-breakpoint-up($mobile) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-breakpoint-up($desktop-xl) {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
