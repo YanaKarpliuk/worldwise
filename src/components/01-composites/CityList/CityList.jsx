@@ -4,11 +4,8 @@ import CityItem from "../CityItem/CityItem";
 import Message from "../Message/Message";
 // import { useCities } from "../contexts/CitiesContext";
 
-export default function CityList() {
+export default function CityList({cities, isLoading}) {
   // const { cities, isLoading } = useCities();
-  const cities = []
-  const isLoading = false
-
   if (isLoading) return <Spinner />;
 
   if (!cities.length)
