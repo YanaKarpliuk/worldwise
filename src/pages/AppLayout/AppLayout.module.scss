@@ -1,0 +1,28 @@
+.app {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up($tablet) {
+    flex-direction: row;
+  }
+
+  > div {
+    @include media-breakpoint-up($tablet) {
+      flex: 1;
+    }
+
+    &:first-child {
+      @include media-breakpoint-up($desktop) {
+        flex-basis: 40%;
+      }
+    }
+
+    &:last-child {
+      @include media-breakpoint-up($desktop) {
+        flex-basis: 60%;
+      }
+    }
+  }
+}

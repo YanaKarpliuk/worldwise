@@ -1,0 +1,33 @@
+.nav {
+  ul {
+    list-style: none;
+    display: flex;
+    background-color: var(--color-dark--2);
+    border-radius: 7px;
+    width: fit-content;
+
+    a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: $transition-time;
+
+      @include active() {
+        background-color: var(--color-dark--0);
+      }
+
+      @include media-breakpoint-up($desktop) {
+        font-size: 16px;
+      }
+    }
+
+    a:global(.active) {
+      background-color: var(--color-dark--0);
+    }
+  }
+}
