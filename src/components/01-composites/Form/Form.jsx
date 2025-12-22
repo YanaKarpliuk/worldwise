@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 
-import styles from "./Form.module.css";
+import styles from "./Form.module.scss";
+import Button from "../../00-elements/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -12,11 +14,17 @@ export function convertToEmoji(countryCode) {
   return String.fromCodePoint(...codePoints);
 }
 
-function Form() {
+export default function Form() {
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
+  const navigate = useNavigate()
+
+  function handleBack(e) {
+    e.preventDefault()
+    navigate(-1)
+  }
 
   return (
     <form className={styles.form}>
@@ -49,11 +57,9 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <button>Add</button>
-        <button>&larr; Back</button>
+        <Button onClick={() => {}} ariaLabel={"Add the city"} type={"primary"} children={"Add"}/>
+        <Button onClick={handleBack} ariaLabel={"Close the form"} type={"outline"} children={<><span>&larr;</span> Back</>}/>
       </div>
     </form>
   );
 }
-
-export default Form;

@@ -16,6 +16,7 @@ import styles from "./Map.module.scss";
 // import Button from "./Button";
 
 export default function Map() {
+  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const lat = searchParams.get("lat")
   const lng = searchParams.get("lng")
@@ -44,7 +45,7 @@ export default function Map() {
   // );
 
   return (
-    <div className={styles.mapContainer}>
+    <div className={styles.mapContainer} onClick={() => navigate("form")}>
       map
       {/*{!geolocationPosition && (*/}
       {/*  <Button type="position" onClick={getPosition}>*/}

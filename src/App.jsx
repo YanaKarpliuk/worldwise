@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import './scss/_general.scss';
 import Product from "./pages/Product/Product.jsx";
 import Pricing from "./pages/Pricing/Pricing.jsx";
@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login.jsx";
 import CityList from "./components/01-composites/CityList/CityList";
 import CountryList from "./components/01-composites/CountryList/CountryList";
 import City from "./components/01-composites/City/City.jsx";
+import Form from "./components/01-composites/Form/Form.jsx";
 
 export default function App() {
   const [cities, setCities] = useState([])
@@ -38,11 +39,11 @@ export default function App() {
           <Route path='product' element={<Product />}/>
           <Route path='pricing' element={<Pricing />}/>
           <Route path='app' element={<AppLayout />}>
-            <Route index element={<CityList cities={cities} isLoading={isLoading} />}/>
+            <Route index element={<Navigate replace to={"cities"} />} />
             <Route path='cities' element={<CityList cities={cities} isLoading={isLoading} />}/>
             <Route path='cities/:id' element={<City cities={cities} />}/>
             <Route path='countries' element={<CountryList cities={cities} isLoading={isLoading} />}/>
-            <Route path='form' element={<p>Form</p>}/>
+            <Route path='form' element={<Form/>}/>
           </Route>
           <Route path='login' element={<Login />}/>
           <Route path='*' element={<NotFound />}/>

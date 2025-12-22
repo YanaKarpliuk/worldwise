@@ -1,0 +1,56 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid var(--color-brand--2);
+  transition: $transition-time;
+  cursor: pointer;
+
+  @include media-breakpoint-up($desktop) {
+    font-size: 16px;
+  }
+
+  &.primary {
+    background-color: var(--color-brand--2);
+    color: var(--color-dark--1);
+
+    @include active() {
+      background-color: var(--color-brand--2-dark);
+      border-color: var(--color-brand--2-dark);
+      color: var(--color-light--2);
+    }
+  }
+
+  &.outline {
+    background: transparent;
+    color: white;
+
+    @include active() {
+      background-color: var(--color-brand--2);
+      color: var(--color-dark--1);
+    }
+  }
+
+  &.position {
+    font-weight: 700;
+    position: absolute;
+    z-index: 1000;
+    font-size: 1.4rem;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-brand--2);
+    color: var(--color-dark--1);
+    box-shadow: 0 0.4rem 1.2rem rgba(36, 42, 46, 16%);
+  }
+
+  span {
+    padding-bottom: 3px;
+  }
+}

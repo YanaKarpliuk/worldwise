@@ -27,45 +27,20 @@ body {
   }
 }
 
-label {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 0.8rem 1.2rem;
-  font-family: inherit;
-  font-size: 1.6rem;
-  border: none;
-  border-radius: 5px;
-  background-color: var(--color-light--3);
-  transition: all 0.2s;
-
-  &:focus {
-    outline: none;
-    background-color: #fff;
-  }
-}
-
 .cta {
-  &:link,
-  &:visited {
-    display: inline-block;
-    background-color: var(--color-brand--2);
-    color: var(--color-dark--1);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 10px 30px;
-    border-radius: 5px;
-    transition: $transition-time;
+  display: inline-block;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 5px;
+  transition: $transition-time;
 
-    @include media-breakpoint-up($desktop) {
-      font-size: 18px;
-    }
+  @include media-breakpoint-up($desktop) {
+    font-size: 18px;
   }
 
   @include active() {
