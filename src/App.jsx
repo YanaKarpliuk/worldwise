@@ -9,6 +9,7 @@ import AppLayout from "./pages/AppLayout/AppLayout.jsx";
 import Login from "./pages/Login/Login.jsx";
 import CityList from "./components/01-composites/CityList/CityList";
 import CountryList from "./components/01-composites/CountryList/CountryList";
+import City from "./components/01-composites/City/City.jsx";
 
 export default function App() {
   const [cities, setCities] = useState([])
@@ -39,6 +40,7 @@ export default function App() {
           <Route path='app' element={<AppLayout />}>
             <Route index element={<CityList cities={cities} isLoading={isLoading} />}/>
             <Route path='cities' element={<CityList cities={cities} isLoading={isLoading} />}/>
+            <Route path='cities/:id' element={<City cities={cities} />}/>
             <Route path='countries' element={<CountryList cities={cities} isLoading={isLoading} />}/>
             <Route path='form' element={<p>Form</p>}/>
           </Route>

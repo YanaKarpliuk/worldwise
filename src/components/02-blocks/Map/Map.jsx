@@ -1,4 +1,4 @@
-// import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 // import {
 //   MapContainer,
 //   TileLayer,
@@ -16,6 +16,9 @@ import styles from "./Map.module.scss";
 // import Button from "./Button";
 
 export default function Map() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const lat = searchParams.get("lat")
+  const lng = searchParams.get("lng")
   // const { cities } = useCities();
   // const [mapPosition, setMapPosition] = useState([40, 0]);
   // const {
