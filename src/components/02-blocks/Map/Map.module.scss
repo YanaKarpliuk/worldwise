@@ -1,29 +1,41 @@
 .mapContainer {
+  position: relative;
   height: 100%;
   background-color: var(--color-dark--2);
-  position: relative;
 
   .map {
     height: 100%;
   }
 
-  /* Here we want to style classes that are coming from leaflet. So we want CSS Modules to give us the ACTUAL classnames, not to add some random ID to them, because then they won't match the classnames defined inside the map. The solution is to define these classes as GLOBAL */
+  :global(.btn-wrapper) {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 0.4rem 1.2rem rgba(36, 42, 46, 16%);
+
+    @include media-breakpoint-up($tablet) {
+      bottom: 48px;
+    }
+  }
+
   :global(.leaflet-popup .leaflet-popup-content-wrapper) {
     background-color: var(--color-dark--1);
     color: var(--color-light--2);
     border-radius: 5px;
-    padding-right: 0.6rem;
+    padding-right: 10px;
   }
 
   :global(.leaflet-popup .leaflet-popup-content) {
-    font-size: 1.5rem;
+    font-size: 20px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 10px;
   }
 
   :global(.leaflet-popup .leaflet-popup-content span:first-child) {
-    font-size: 2.5rem;
+    font-size: 30px;
     line-height: 1;
   }
 
