@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-// import { useCities } from "../contexts/CitiesContext";
 import styles from "./CityItem.module.scss";
+import { useCities } from "../../../contexts/CitiesContext.jsx";
 
 function formatDate(date) {
   return new Intl.DateTimeFormat("en", {
@@ -11,11 +11,10 @@ function formatDate(date) {
 }
 
 export default function CityItem({ city }) {
-  // const { currentCity, deleteCity } = useCities();
-  const currentCity = {}
-  function deleteCity() {}
-
+  const { currentCity } = useCities();
   const { cityName, emoji, date, id, position } = city;
+
+  function deleteCity() {}
 
   function handleClick(e) {
     e.preventDefault();

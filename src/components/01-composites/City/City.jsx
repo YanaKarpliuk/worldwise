@@ -1,5 +1,9 @@
 import styles from "./City.module.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useCities } from "../../../contexts/CitiesContext.jsx";
+import Button from "../../00-elements/Button/Button";
+import { useEffect } from "react";
+import Spinner from "../../00-elements/Spinner/Spinner.jsx";
 
 function formatDate(date) {
   return new Intl.DateTimeFormat("en", {
@@ -10,10 +14,17 @@ function formatDate(date) {
   }).format(new Date(date))
 }
 
-export default function City({cities}) {
+export default function City() {
   const {id} = useParams()
+  const { getCity, currentCity, isLoading } = useCities();
+  const navigate = useNavigate()
 
-  const currentCity = cities.length && cities.filter(city => city.id === id)[0]
+  useEffect(() => {
+    getCity(id)
+  }, [id])
+
+  if (isLoading) return <Spinner />;
+
   const {cityName, emoji, date, notes} = currentCity;
 
   return (
@@ -48,9 +59,13 @@ export default function City({cities}) {
           </a>
         </div>
 
-        {/*<div>*/}
-        {/*  <ButtonBack />*/}
-        {/*</div>*/}
+        <Button
+            type={'outline'}
+            onClick={() => navigate(-1)}
+            ariaLabel={'Back'}
+        >
+          <><span>&larr;</span> Back</>
+        </Button>
       </div>
   );
 }
