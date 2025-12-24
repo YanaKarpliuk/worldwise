@@ -15,7 +15,7 @@ function formatDate(date) {
 }
 
 export default function City() {
-  const {id} = useParams()
+  const { id } = useParams()
   const { getCity, currentCity, isLoading } = useCities();
   const navigate = useNavigate()
 
@@ -23,9 +23,9 @@ export default function City() {
     getCity(id)
   }, [id])
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner/>;
 
-  const {cityName, emoji, date, notes} = currentCity;
+  const { cityName, emoji, date, notes } = currentCity;
 
   return (
       <div className={styles.city}>

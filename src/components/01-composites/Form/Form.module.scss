@@ -18,10 +18,10 @@
   }
 
   .row {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 6px;
-    position: relative;
   }
 
   .buttons {
@@ -31,8 +31,8 @@
 
   .flag {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 5px;
+    bottom: 3px;
     font-size: 24px;
   }
 
@@ -58,6 +58,10 @@
 
     @include media-breakpoint-up($desktop) {
       font-size: 16px;
+    }
+
+    &:has(+ span) {
+      padding-right: 30px;
     }
 
     &:focus {
