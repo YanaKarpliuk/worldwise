@@ -1,10 +1,44 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUrlPosition } from "../../../hooks/useUrlPosition.js";
 import styles from "./Form.module.scss";
 import Button from "../../00-elements/Button/Button";
 import Spinner from "../../00-elements/Spinner/Spinner.jsx";
 import Message from "../Message/Message";
+
+const initialState = {
+  status: "loading",
+  cityName: "",
+  country: "",
+  countryEmoji: "",
+  geocodingError: ""
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "dataReceived":
+      return {
+        ...state,
+        cityName: action.payload.cityName,
+        country: action.payload.country,
+        countryEmoji: action.payload.countryEmoji,
+        status: "ready"
+      }
+    case "dataFailed":
+      return {
+        ...state,
+        status: "error",
+        geocodingError: action.payload
+      }
+    case "setCity":
+      return {
+        ...state,
+        cityName: action.payload
+      }
+    default:
+      throw new Error("Action unknown")
+  }
+}
 
 function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -15,15 +49,12 @@ function convertToEmoji(countryCode) {
 }
 
 export default function Form() {
-  const [cityName, setCityName] = useState("");
-  const [country, setCountry] = useState("");
-  const [countryEmoji, setCountryEmoji] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
-  const [isGeocodingLoading, setIsGeocodingLoading] = useState(false);
-  const [geocodingError, setGeocodingError] = useState("");
   const navigate = useNavigate()
   const [lat, lng] = useUrlPosition()
+  const [state, dispatch] = useReducer(reducer, initialState)
+  const { status, cityName, countryEmoji, geocodingError } = state
 
   const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client'
 
@@ -35,28 +66,29 @@ export default function Form() {
   useEffect(() => {
     async function fetchCityData() {
       try {
-        setIsGeocodingLoading(true)
-        setGeocodingError("")
         const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`)
         const data = await res.json()
 
         if (!data.countryCode) throw new Error("No city found here. Click somewhere else.")
 
-        setCityName(data.city || data.locality || "")
-        setCountry(data.countryName)
-        setCountryEmoji(convertToEmoji(data.countryCode))
-      } catch(err) {
-        setGeocodingError(err.message)
-      } finally {
-        setIsGeocodingLoading(false)
+        dispatch({ type: "dataReceived",
+          payload: {
+            cityName: data.city || data.locality || "",
+            country: data.countryName,
+            countryEmoji: convertToEmoji(data.countryCode)
+          }
+        })
+      } catch (err) {
+        dispatch({type: "dataFailed", payload: err.message})
       }
     }
+
     fetchCityData()
   }, [lat, lng])
 
-  if (isGeocodingLoading) return <Spinner />;
+  if (status === "loading") return <Spinner/>;
 
-  if (geocodingError) return <Message message={geocodingError}/>;
+  if (status === "error") return <Message message={geocodingError}/>;
 
   return (
       <form className={styles.form}>
@@ -64,10 +96,10 @@ export default function Form() {
           <label htmlFor="cityName">City name</label>
           <input
               id="cityName"
-              onChange={(e) => setCityName(e.target.value)}
+              onChange={(e) => dispatch({type: "setCity", payload: e.target.value})}
               value={cityName}
           />
-           <span className={styles.flag}>{countryEmoji}</span>
+          <span className={styles.flag}>{countryEmoji}</span>
         </div>
 
         <div className={styles.row}>
@@ -90,7 +122,8 @@ export default function Form() {
 
         <div className={styles.buttons}>
           <Button
-              onClick={() => {}}
+              onClick={() => {
+              }}
               ariaLabel={"Add the city"}
               type={"primary"}
               children={"Add"}
