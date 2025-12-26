@@ -1,111 +1,15 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
-    },
-    {
-      "cityName": "Madrid",
+      "id": "0284",
+      "cityName": "Loranca de Tajuna",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
+      "date": "2025-12-26T14:09:43.988Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
-    },
-    {
-      "cityName": "Malaga",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 36.721273880045004,
-        "lng": -4.329837519028913
-      },
-      "id": "17806752"
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "id": "345a",
-      "cityName": "Forfoleda",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2025-12-26T11:16:45.369Z",
-      "notes": "",
-      "position": {
-        "lat": "41.1290213474951",
-        "lng": "-5.7376885237262885"
-      }
-    },
-    {
-      "id": "ca27",
-      "cityName": "Haute-Goulaine",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2025-12-26T11:22:50.664Z",
-      "notes": "",
-      "position": {
-        "lat": "47.212105775622426",
-        "lng": "-1.4391773482615913"
-      }
-    },
-    {
-      "id": "99ea",
-      "cityName": "Oncala",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2025-12-26T11:26:16.169Z",
-      "notes": "",
-      "position": {
-        "lat": "41.95131994679697",
-        "lng": "-2.264598965954519"
-      }
-    },
-    {
-      "id": "e995",
-      "cityName": "Pinsaguel",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2025-12-26T11:30:17.776Z",
-      "notes": "",
-      "position": {
-        "lat": "43.50075243569041",
-        "lng": "1.3823175094486342"
-      }
-    },
-    {
-      "id": "8069",
-      "cityName": "Untertauern",
-      "country": "Austria",
-      "emoji": "🇦🇹",
-      "date": "2025-12-26T11:31:34.604Z",
-      "notes": "",
-      "position": {
-        "lat": "47.249406957888446",
-        "lng": "13.490454880238802"
+        "lat": "40.463666324587685",
+        "lng": "-3.10127352626451"
       }
     }
   ]
