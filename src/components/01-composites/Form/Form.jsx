@@ -1,6 +1,9 @@
 import { useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useUrlPosition } from "../../../hooks/useUrlPosition.js";
+import { useCities } from "../../../contexts/CitiesContext.jsx";
 import styles from "./Form.module.scss";
 import Button from "../../00-elements/Button/Button";
 import Spinner from "../../00-elements/Spinner/Spinner.jsx";
@@ -53,8 +56,9 @@ export default function Form() {
   const [notes, setNotes] = useState("");
   const navigate = useNavigate()
   const [lat, lng] = useUrlPosition()
+  const { createCity, isLoading } = useCities()
   const [state, dispatch] = useReducer(reducer, initialState)
-  const { status, cityName, countryEmoji, geocodingError } = state
+  const { status, cityName, country, countryEmoji, geocodingError } = state
 
   const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client'
 
@@ -63,7 +67,31 @@ export default function Form() {
     navigate(-1)
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    if (!cityName && !date) return;
+
+    // id will be created by the server
+    const newCity = {
+      cityName,
+      country,
+      emoji: countryEmoji,
+      date,
+      notes,
+      position: { lat, lng },
+    }
+
+    await createCity(newCity);
+    navigate("/app")
+  }
+
   useEffect(() => {
+    if (!lat && !lng) {
+      dispatch({ type: "dataFailed", payload: "Start by clicking somewhere on the map." })
+      return
+    }
+
     async function fetchCityData() {
       try {
         const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`)
@@ -71,7 +99,8 @@ export default function Form() {
 
         if (!data.countryCode) throw new Error("No city found here. Click somewhere else.")
 
-        dispatch({ type: "dataReceived",
+        dispatch({
+          type: "dataReceived",
           payload: {
             cityName: data.city || data.locality || "",
             country: data.countryName,
@@ -79,7 +108,7 @@ export default function Form() {
           }
         })
       } catch (err) {
-        dispatch({type: "dataFailed", payload: err.message})
+        dispatch({ type: "dataFailed", payload: err.message })
       }
     }
 
@@ -91,12 +120,15 @@ export default function Form() {
   if (status === "error") return <Message message={geocodingError}/>;
 
   return (
-      <form className={styles.form}>
+      <form
+          className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+          onSubmit={handleSubmit}
+      >
         <div className={styles.row}>
           <label htmlFor="cityName">City name</label>
           <input
               id="cityName"
-              onChange={(e) => dispatch({type: "setCity", payload: e.target.value})}
+              onChange={(e) => dispatch({ type: "setCity", payload: e.target.value })}
               value={cityName}
           />
           <span className={styles.flag}>{countryEmoji}</span>
@@ -104,10 +136,11 @@ export default function Form() {
 
         <div className={styles.row}>
           <label htmlFor="date">When did you go to {cityName}?</label>
-          <input
+          <DatePicker
               id="date"
-              onChange={(e) => setDate(e.target.value)}
-              value={date}
+              onChange={(e) => setDate(e)}
+              selected={date}
+              dateFormat="dd/MM/yyyy"
           />
         </div>
 
@@ -122,8 +155,6 @@ export default function Form() {
 
         <div className={styles.buttons}>
           <Button
-              onClick={() => {
-              }}
               ariaLabel={"Add the city"}
               type={"primary"}
               children={"Add"}

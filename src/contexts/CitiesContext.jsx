@@ -39,13 +39,37 @@ function CitiesProvider({children}) {
     }
   }
 
+  async function createCity(city) {
+    try {
+      setIsLoading(true)
+      // The city will be written to the cities.json file.
+      const res = await fetch(`${BASE_URL}/cities`, {
+        method: "POST",
+        body: JSON.stringify(city),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      const data = await res.json()
+
+      // Keep the UI state in sync with the remote state.
+      // A better way to do it is with the React Query, but I don't know this at the moment.
+      setCities(prev => [...prev, data])
+    } catch (err) {
+      throw new Error(err)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
       <CitiesContext.Provider
           value={{
             cities,
             isLoading,
             currentCity,
-            getCity
+            getCity,
+            createCity
           }}
       >
         {children}
