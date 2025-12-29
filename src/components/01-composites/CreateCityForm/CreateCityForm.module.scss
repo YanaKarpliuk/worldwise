@@ -1,0 +1,18 @@
+form {
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flag {
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+    font-size: 24px;
+  }
+
+  :global(.react-datepicker) {
+    font-family: inherit;
+    font-size: 14px;
+  }
+}

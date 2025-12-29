@@ -6,6 +6,10 @@
   flex-direction: column;
   gap: 16px;
 
+  @include media-breakpoint-up($tablet) {
+    padding: 24px 20px;
+  }
+
   &.loading {
     opacity: 0.3;
 
@@ -14,23 +18,11 @@
     }
   }
 
-  .row {
+  :global(.row) {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 6px;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .flag {
-    position: absolute;
-    right: 5px;
-    bottom: 3px;
-    font-size: 24px;
   }
 
   label {
@@ -65,10 +57,5 @@
       outline: none;
       background-color: #fff;
     }
-  }
-
-  :global(.react-datepicker) {
-    font-family: inherit;
-    font-size: 14px;
   }
 }

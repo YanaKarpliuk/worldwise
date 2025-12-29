@@ -1,6 +1,8 @@
-export default function Main({children}) {
+import styles from './Main.module.scss'
+
+export default function Main({full = true, children}) {
   return (
-      <main>
+      <main className={`${styles.main} ${full ? styles.full : '' }`}>
         {children}
       </main>
   )

@@ -14,7 +14,7 @@ export default function Banner() {
           of. Never forget your wonderful experiences, and show your friends how
           you have wandered the world.
         </div>
-        <Link to="/app" className="cta">Start tracking now</Link>
+        <Link to="/login" className="cta">Start tracking now</Link>
       </div>
   )
 }

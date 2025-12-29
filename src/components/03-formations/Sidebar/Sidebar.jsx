@@ -4,16 +4,14 @@ import AppHeader from "../AppHeader/AppHeader.jsx";
 import Main from "../Main/Main.jsx";
 import AppFooter from "../AppFooter/AppFooter";
 
-function Sidebar() {
+export default function Sidebar() {
   return (
       <div className={styles.sidebar}>
         <AppHeader/>
-        <Main>
+        <Main full={false}>
           <Outlet/>
         </Main>
         <AppFooter/>
       </div>
   )
 }
-
-export default Sidebar;

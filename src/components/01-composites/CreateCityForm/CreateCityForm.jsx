@@ -4,10 +4,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useUrlPosition } from "../../../hooks/useUrlPosition.js";
 import { useCities } from "../../../contexts/CitiesContext.jsx";
-import styles from "./Form.module.scss";
+import styles from "./CreateCityForm.module.scss";
 import Button from "../../00-elements/Button/Button";
 import Spinner from "../../00-elements/Spinner/Spinner.jsx";
 import Message from "../Message/Message";
+import Form from "../../00-elements/Form/Form.jsx";
 
 const initialState = {
   status: "loading",
@@ -51,7 +52,7 @@ function convertToEmoji(countryCode) {
   return String.fromCodePoint(...codePoints);
 }
 
-export default function Form() {
+export default function CreateCityForm() {
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const navigate = useNavigate()
@@ -120,11 +121,8 @@ export default function Form() {
   if (status === "error") return <Message message={geocodingError}/>;
 
   return (
-      <form
-          className={`${styles.form} ${isLoading ? styles.loading : ""}`}
-          onSubmit={handleSubmit}
-      >
-        <div className={styles.row}>
+      <Form isLoading={isLoading} handleSubmit={handleSubmit}>
+        <div className='row'>
           <label htmlFor="cityName">City name</label>
           <input
               id="cityName"
@@ -134,7 +132,7 @@ export default function Form() {
           <span className={styles.flag}>{countryEmoji}</span>
         </div>
 
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor="date">When did you go to {cityName}?</label>
           <DatePicker
               id="date"
@@ -144,7 +142,7 @@ export default function Form() {
           />
         </div>
 
-        <div className={styles.row}>
+        <div className='row'>
           <label htmlFor="notes">Notes about your trip to {cityName}</label>
           <textarea
               id="notes"
@@ -166,6 +164,6 @@ export default function Form() {
               children={<><span>&larr;</span> Back</>}
           />
         </div>
-      </form>
+      </Form>
   );
 }

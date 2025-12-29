@@ -1,0 +1,40 @@
+.user {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--color-dark--1);
+  padding: 24px;
+
+  @include media-breakpoint-up($tablet) {
+    position: absolute;
+    top: 24px;
+    right: 16px;
+    border-radius: 7px;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(36, 42, 46, 50%);
+  }
+
+  @include media-breakpoint-up($desktop) {
+    right: 48px;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 48px;
+  }
+
+  button {
+    background-color: var(--color-dark--2);
+    border-radius: 7px;
+    border: none;
+    padding: 10px 16px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}

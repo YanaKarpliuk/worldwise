@@ -1,0 +1,9 @@
+.main {
+  overflow-y: auto;
+  height: 100%;
+  background: var(--color-dark--1);
+
+  &.full {
+    min-height: 100vh;
+  }
+}

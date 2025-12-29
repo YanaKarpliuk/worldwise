@@ -14,9 +14,4 @@
   @include media-breakpoint-up($desktop) {
     padding: 32px 48px;
   }
-
-  main {
-    overflow-y: auto;
-    height: 100%;
-  }
 }

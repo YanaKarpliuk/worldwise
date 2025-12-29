@@ -1,5 +1,4 @@
 .app {
-  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -13,13 +12,13 @@
       flex: 1;
     }
 
-    &:first-child {
+    &:nth-child(2) {
       @include media-breakpoint-up($desktop) {
         flex-basis: 40%;
       }
     }
 
-    &:last-child {
+    &:nth-child(3) {
       @include media-breakpoint-up($desktop) {
         flex-basis: 60%;
       }
