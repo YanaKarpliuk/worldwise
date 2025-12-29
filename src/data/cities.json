@@ -1,15 +1,51 @@
 {
   "cities": [
     {
-      "id": "0284",
-      "cityName": "Loranca de Tajuna",
+      "id": "9a00",
+      "cityName": "Pobladura del Valle",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2025-12-26T14:09:43.988Z",
+      "date": "2025-12-29T10:15:37.171Z",
       "notes": "",
       "position": {
-        "lat": "40.463666324587685",
-        "lng": "-3.10127352626451"
+        "lat": "42.09822241118974",
+        "lng": "-5.740519143352921"
+      }
+    },
+    {
+      "id": "b1d8",
+      "cityName": "Bujaleuf",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-12-29T10:28:51.399Z",
+      "notes": "ded",
+      "position": {
+        "lat": "45.81348649679973",
+        "lng": "1.6001257671446691"
+      }
+    },
+    {
+      "id": "0db7",
+      "cityName": "Cueva del Hierro",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2025-12-29T10:29:37.336Z",
+      "notes": "",
+      "position": {
+        "lat": "40.56389453066509",
+        "lng": "-1.9831117562755554"
+      }
+    },
+    {
+      "id": "90de",
+      "cityName": "Court-Saint-Etienne",
+      "country": "Belgium",
+      "emoji": "🇧🇪",
+      "date": "2025-12-29T10:30:05.632Z",
+      "notes": "",
+      "position": {
+        "lat": "50.63901028125873",
+        "lng": "4.545272595836543"
       }
     }
   ]
