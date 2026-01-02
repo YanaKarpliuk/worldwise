@@ -1,28 +1,28 @@
-// Uses the same styles as Product
-import styles from "../Product/Product.module.css";
 import Header from "../../components/03-formations/Header/Header.jsx";
+import Main from "../../components/03-formations/Main/Main.jsx";
+import Section from "../../components/03-formations/Section/Section.jsx";
+import TextMedia from "../../components/02-blocks/TextMedia/TextMedia";
 
 export default function Product() {
   return (
       <>
         <Header/>
-        <main className={styles.product}>
-          <section>
-            <div>
-              <h2>
-                Simple pricing.
-                <br />
-                Just $9/month.
-              </h2>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae vel
-                labore mollitia iusto. Recusandae quos provident, laboriosam fugit
-                voluptatem iste.
-              </p>
-            </div>
-            <img src="/public/img-2.jpg" alt="overview of a large city with skyscrapers" />
-          </section>
-        </main>
+        <Main>
+          <Section isBanner={true}>
+            <TextMedia
+                text={<p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae vel
+                  labore mollitia iusto. Recusandae quos provident, laboriosam fugit
+                  voluptatem iste.
+                </p>}
+                title={<>Simple pricing.
+                  <br/>
+                  Just $9/month.</>}
+                img={"/public/img-2.jpg"}
+                imgAlt={"overview of a large city with skyscrapers"}
+            />
+          </Section>
+        </Main>
       </>
   );
 }
