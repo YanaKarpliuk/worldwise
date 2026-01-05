@@ -11,6 +11,11 @@
   animation: rotate 1.5s infinite linear;
 }
 
+.spinnerFull {
+  height: 100vh;
+  background-color: var(--color-dark--1);
+}
+
 @keyframes rotate {
   to {
     transform: translate(-50%, -50%) rotate(1turn);

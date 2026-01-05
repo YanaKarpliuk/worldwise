@@ -18,7 +18,7 @@ export default function Product() {
                 title={<>Simple pricing.
                   <br/>
                   Just $9/month.</>}
-                img={"/public/img-2.jpg"}
+                img={"/img-2.jpg"}
                 imgAlt={"overview of a large city with skyscrapers"}
             />
           </Section>

@@ -27,7 +27,7 @@ export default function Product() {
                     </p>
                   </>
                 }
-                img={"/public/img-1.jpg"}
+                img={"/img-1.jpg"}
                 imgAlt={"person with dog overlooking mountain with sunset"}
             />
           </Section>
